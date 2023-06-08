@@ -40,10 +40,13 @@ export class ControladorHabitaciones{
         let objetoServicioHabitacion = new ServicioHabitacion()
         try{
             let idHabitacion = peticion.params.idhabitacion
-            respuesta.status(200).json({
-                "mensaje":"Exito buscando la habitación",
-                "habitacion":await objetoServicioHabitacion.buscarPorId(idHabitacion)
-            })
+            respuesta.status(200).json(
+                await objetoServicioHabitacion.buscarPorId(idHabitacion)   
+                // {
+                // "mensaje":"Exito buscando la habitación",
+                // "habitacion":await objetoServicioHabitacion.buscarPorId(idHabitacion)
+                // }
+            )
         }
         catch(error){
             respuesta.status(400).json({
@@ -54,10 +57,13 @@ export class ControladorHabitaciones{
     async buscandoHabitaciones(peticion,respuesta){
         let objetoServicioHabitacion = new ServicioHabitacion()
         try{
-            respuesta.status(200).json({
-                "mensaje":"Exito buscando las habitaciones",
-                "habitaciones": await objetoServicioHabitacion.buscarTodas()
-            })
+            respuesta.status(200).json(
+                await objetoServicioHabitacion.buscarTodas()
+                // {  
+                // "mensaje":"Exito buscando las habitaciones",
+                // "habitaciones": await objetoServicioHabitacion.buscarTodas()
+                // }
+            )
         }
         catch(error){
             respuesta.status(400).json({

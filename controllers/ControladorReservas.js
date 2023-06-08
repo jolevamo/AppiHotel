@@ -137,10 +137,12 @@ export class ControladorReservas {
         let objetoServicioReserva = new ServicioReserva()
         try{
             let idReserva = peticion.params.idReserva
-            respuesta.status(200).json({
+            respuesta.status(200).json(
+                {
                 "mensaje":"Exito buscando reserva",
                 "reserva":await objetoServicioReserva.buscarReserva(idReserva)
-            })
+                }
+            )
         }
         catch(error){
             respuesta.status(400).json({
@@ -148,13 +150,16 @@ export class ControladorReservas {
             })
         }
     }
+
     async buscandoReservas(peticion,respuesta){
         let objetoServicioReserva = new ServicioReserva()
         try{
-            respuesta.status(200).json({
+            respuesta.status(200).json(
+                {
                 "mensaje":"Exito buscando reserva",
                 "reservas":await objetoServicioReserva.buscarReservas()
-            })
+                }
+            )
         }
         catch(error){
             respuesta.status(400).json({
